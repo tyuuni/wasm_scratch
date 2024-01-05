@@ -34,3 +34,5 @@
 web/node_modules
 web/dist/*.wasm
 web/dist/hello.*
+web/dist/array.js
+web/dist/array.wasm

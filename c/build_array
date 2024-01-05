@@ -1,0 +1,4 @@
+#!/bin/bash
+em++ -std=c++11 array.cpp -o array.js -sEXPORTED_FUNCTIONS=['_malloc','_free']  -sEXPORTED_RUNTIME_METHODS=['ccall'] -sMODULARIZE
+mv array.wasm ../web/dist/
+mv array.js ../web/dist/

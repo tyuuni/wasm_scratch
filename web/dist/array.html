@@ -1,0 +1,25 @@
+<script src="/array.js"></script>
+<script>
+    Module().then((mod) => {
+        let array = [1, 2, 3, 4, 5];
+        let num = 10;
+        let typedArray = new Int32Array(array);
+        let pointer = mod._malloc(
+            typedArray.length * typedArray.BYTES_PER_ELEMENT
+        );
+        mod.HEAP32.set(
+            typedArray, pointer / typedArray.BYTES_PER_ELEMENT
+        );
+        mod.ccall(
+            "alter",
+            null,
+            ["number", "number", "number"],
+            [pointer, num, typedArray.length]
+        );
+        let newArray = mod.HEAP32.subarray(
+            pointer / typedArray.BYTES_PER_ELEMENT,
+            pointer / typedArray.BYTES_PER_ELEMENT + typedArray.length
+        );
+        console.log(newArray);
+    });
+</script>

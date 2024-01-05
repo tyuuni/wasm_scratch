@@ -1,0 +1,7 @@
+#!/bin/bash
+emcc hello.cpp -o hello.js
+emcc hello.cpp -O3 -o hello.html
+
+mv hello.js ../web/dist/
+mv hello.wasm ../web/dist/
+mv hello.html ../web/dist/

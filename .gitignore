@@ -30,3 +30,7 @@
 *.exe
 *.out
 *.app
+
+web/node_modules
+web/dist/*.wasm
+web/dist/hello.*
